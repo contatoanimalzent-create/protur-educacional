@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { CalendarBlank, CheckCircle, WarningCircle } from "@phosphor-icons/react/dist/ssr";
+import { CalendarBlank, MapPin, CheckCircle, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { pulseClient, PULSE_EVENT_ID } from "@/lib/pulse";
 
@@ -42,16 +42,22 @@ export function InscricaoSection() {
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-center md:gap-8">
           <div className="md:col-span-6">
-            <span className="inline-flex items-center gap-2 rounded-full bg-protur-green px-4 py-2 text-xs font-bold tracking-wide text-protur-cream">
-              <CalendarBlank size={16} weight="bold" />
-              19 E 20 DE SETEMBRO · 08H ÀS 16H
-            </span>
+            <div className="flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full bg-protur-green px-4 py-2 text-xs font-bold tracking-wide text-protur-cream">
+                <CalendarBlank size={16} weight="bold" />
+                19 E 20 DE SETEMBRO · 08H ÀS 16H
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-protur-coral px-4 py-2 text-xs font-bold tracking-wide text-protur-cream">
+                <MapPin size={16} weight="bold" />
+                CAIS DO LAGO · SETOR DE CLUBES SUL
+              </span>
+            </div>
             <h2 className="mt-5 text-4xl font-extrabold leading-[1.14] text-protur-green md:text-5xl">
               Garanta sua vaga. É gratuito.
             </h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-protur-green/75">
-              Faça sua inscrição para o dia de bem-estar da Protur Educacional.
-              Vagas limitadas nas 9 atividades simultâneas.
+              Faça sua inscrição para o dia de bem-estar da Protur Educacional,
+              no Cais do Lago. Vagas limitadas nas 9 atividades simultâneas.
             </p>
           </div>
 

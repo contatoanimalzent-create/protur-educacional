@@ -60,7 +60,7 @@ const SPACES = [
 
 export function SpacesGrid() {
   return (
-    <section id="espacos" className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+    <section id="espacos" className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-20">
       <div className="mb-14 flex flex-col gap-4 md:mb-20 md:max-w-xl">
         <span className="text-xs font-bold tracking-[0.2em] text-protur-coral">
           9 ATIVIDADES · 08H ÀS 16H

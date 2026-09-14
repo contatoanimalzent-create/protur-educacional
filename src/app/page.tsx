@@ -17,7 +17,7 @@ export default function Home() {
         mediaSrc="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2400&auto=format&fit=crop"
         bgImageSrc="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2400&auto=format&fit=crop"
         title="Um dia para cuidar de você"
-        date="19 e 20 de setembro"
+        date="19 e 20 de setembro · Cais do Lago"
         scrollToExpand="Role para expandir"
       />
 

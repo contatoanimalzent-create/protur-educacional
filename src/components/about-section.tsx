@@ -4,7 +4,7 @@ import { StatsStrip } from "@/components/stats-strip";
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="relative overflow-hidden pt-16 pb-20 md:pt-20 md:pb-28">
+    <section id="sobre" className="relative overflow-hidden pt-16 pb-16 md:pt-20 md:pb-20">
       <RingsMotif
         size={560}
         className="pointer-events-none absolute -right-40 -top-24 opacity-[0.35] md:-right-24 md:opacity-60"
@@ -44,7 +44,7 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="mt-20 border-t border-protur-green/10 pt-14">
+        <div className="mt-16">
           <StatsStrip />
         </div>
       </div>
