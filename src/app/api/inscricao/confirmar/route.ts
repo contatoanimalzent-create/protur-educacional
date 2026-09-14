@@ -28,11 +28,8 @@ export async function POST(request: Request) {
     <div style="max-width:480px;margin:0 auto;background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #e1eef6;">
       <table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border-bottom:1px solid #e1eef6;">
         <tr>
-          <td style="padding:20px 32px;" align="left">
-            <img src="https://protureducacional.com/brand/logo.png" alt="Protur Educacional" width="110" style="display:block;" />
-          </td>
-          <td style="padding:20px 32px;" align="right">
-            <span style="color:#12849c;font-size:12px;font-weight:bold;letter-spacing:0.08em;">19-20 SET</span>
+          <td style="padding:28px 32px;text-align:center;">
+            <img src="https://protureducacional.com/brand/logo.png" alt="Protur Educacional" width="160" style="display:block;margin:0 auto;" />
           </td>
         </tr>
       </table>
