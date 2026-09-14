@@ -29,17 +29,15 @@ export function SiteHeader() {
         scrolled ? "shadow-[0_1px_0_rgba(22,53,42,0.08)]" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
-        <a
-          href="#topo"
-          className="relative h-11 w-[150px] overflow-hidden md:h-12 md:w-[168px]"
-        >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 md:px-10">
+        <a href="#topo" className="shrink-0">
           <Image
             src="/brand/logo.png"
             alt="Protur Educacional"
-            fill
+            width={1254}
+            height={1254}
             unoptimized
-            style={{ objectFit: "cover", objectPosition: "50% 17%" }}
+            className="h-16 w-auto md:h-20"
             priority
           />
         </a>
