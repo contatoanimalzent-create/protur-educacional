@@ -1,5 +1,5 @@
 const STATS = [
-  { value: "9", label: "espaços simultâneos" },
+  { value: "9", label: "atividades simultâneas" },
   { value: "2", label: "dias de programação" },
   { value: "08h–16h", label: "de atividades por dia" },
   { value: "20+", label: "atividades diferentes" },

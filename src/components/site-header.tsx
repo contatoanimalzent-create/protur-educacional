@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { InstagramLogo, List, X } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 
@@ -31,9 +32,15 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
         <a
           href="#topo"
-          className="inline-flex items-center rounded-full bg-protur-green px-4 py-2 text-xs font-bold tracking-wide text-protur-cream"
+          className="relative h-11 w-[150px] overflow-hidden md:h-12 md:w-[168px]"
         >
-          PROTUR EDUCACIONAL
+          <Image
+            src="/brand/logo.png"
+            alt="Protur Educacional"
+            fill
+            style={{ objectFit: "cover", objectPosition: "50% 17%" }}
+            priority
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -60,9 +67,9 @@ export function SiteHeader() {
           </a>
           <Button
             asChild
-            className="rounded-full bg-protur-coral px-5 text-protur-green hover:bg-protur-coral/90"
+            className="rounded-full bg-protur-coral px-7 py-6 text-base font-extrabold uppercase tracking-wide text-protur-cream shadow-[0_6px_16px_rgba(18,132,156,0.4)] hover:bg-protur-coral/90"
           >
-            <a href="#contato">Levar para minha empresa</a>
+            <a href="#inscricao">Inscrição</a>
           </Button>
         </div>
 
@@ -90,10 +97,10 @@ export function SiteHeader() {
             ))}
             <Button
               asChild
-              className="mt-2 rounded-full bg-protur-coral text-protur-green hover:bg-protur-coral/90"
+              className="mt-2 rounded-full bg-protur-coral py-6 text-base font-extrabold uppercase tracking-wide text-protur-cream hover:bg-protur-coral/90"
             >
-              <a href="#contato" onClick={() => setOpen(false)}>
-                Levar para minha empresa
+              <a href="#inscricao" onClick={() => setOpen(false)}>
+                Inscrição
               </a>
             </Button>
           </nav>

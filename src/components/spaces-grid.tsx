@@ -63,7 +63,7 @@ export function SpacesGrid() {
     <section id="espacos" className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
       <div className="mb-14 flex flex-col gap-4 md:mb-20 md:max-w-xl">
         <span className="text-xs font-bold tracking-[0.2em] text-protur-coral">
-          9 ESPAÇOS · 08H ÀS 16H
+          9 ATIVIDADES · 08H ÀS 16H
         </span>
         <h2 className="text-4xl font-extrabold leading-[1.14] text-protur-green md:text-5xl">
           Um dia inteiro,

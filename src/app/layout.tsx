@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Protur Educacional | Turismo de bem-estar para empresas",
     description:
-      "Um dia inteiro para cuidar de você: 9 espaços simultâneos de movimento, saúde e bem-estar.",
+      "Um dia inteiro para cuidar de você: 9 atividades simultâneas de movimento, saúde e bem-estar.",
     locale: "pt_BR",
     type: "website",
   },

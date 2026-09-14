@@ -14,31 +14,30 @@ export function AboutSection() {
         <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-7">
             <span className="text-xs font-bold tracking-[0.2em] text-protur-coral">
-              O QUE É A PROTUR EDUCACIONAL
+              PESSOAS EM MOVIMENTO PARA UM AMANHÃ MELHOR
             </span>
             <h2 className="mt-4 text-4xl font-extrabold leading-[1.14] text-protur-green md:text-5xl">
-              Turismo de bem-estar levado até dentro da sua empresa.
+              Conhecimento, saúde, bem-estar e experiências em um só lugar.
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-protur-green/75">
-              Organizamos dias de cuidado completo: movimento, respiração,
-              avaliação nutricional, massoterapia e conteúdo educacional em um
-              único espaço, com toda a programação rodando em paralelo, das 8h
-              às 16h.
+              Uma plataforma de educação experiencial voltada à saúde, ao
+              movimento e ao bem-estar, levada até dentro da sua empresa.
             </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-protur-green/75">
-              Cada edição reúne profissionais de yoga, pilates, meditação,
-              nutrição e recovery para transformar um dia comum em uma
-              experiência real de autocuidado, sem tirar ninguém da rotina.
+              Em 19 e 20 de setembro, reunimos profissionais de yoga,
+              pilates, meditação, nutrição e recovery em um único dia de
+              cuidado completo, com toda a programação rodando em paralelo,
+              das 8h às 16h.
             </p>
           </div>
 
           <div className="md:col-span-5">
-            <div className="overflow-hidden rounded-3xl border border-protur-green/10 shadow-[0_30px_60px_-30px_rgba(22,53,42,0.35)]">
+            <div className="overflow-hidden rounded-3xl border border-protur-green/10 shadow-[0_30px_60px_-30px_rgba(12,42,77,0.25)]">
               <Image
-                src="/brand/programacao-01.png"
-                alt="Programação real da Protur Educacional: 19 de setembro, um dia para cuidar de você"
+                src="/brand/poster-hiker.png"
+                alt="Protur Educacional: educação, saúde, bem-estar e experiências que transformam qualidade de vida"
                 width={1080}
-                height={1350}
+                height={1080}
                 className="h-auto w-full"
               />
             </div>
