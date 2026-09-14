@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/about-section";
 import { SpacesGrid } from "@/components/spaces-grid";
 import { ScheduleTable } from "@/components/schedule-table";
 import { CtaContact } from "@/components/cta-contact";
+import { InscricaoSection } from "@/components/inscricao-section";
 import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
 
 export default function Home() {
@@ -18,13 +19,9 @@ export default function Home() {
         title="Um dia para cuidar de você"
         date="19 e 20 de setembro"
         scrollToExpand="Role para expandir"
-      >
-        <p className="mx-auto max-w-2xl text-center text-lg text-protur-green/70">
-          Turismo de bem-estar levado até dentro da sua empresa: movimento,
-          respiração, saúde e conteúdo educacional em um único dia.
-        </p>
-      </ScrollExpandMedia>
+      />
 
+      <InscricaoSection />
       <AboutSection />
       <SpacesGrid />
       <ScheduleTable />
