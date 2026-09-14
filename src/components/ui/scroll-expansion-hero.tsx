@@ -103,16 +103,22 @@ const ScrollExpandMedia = ({
       setTouchStartY(0);
     };
 
-    const handleScroll = (): void => {
-      if (!mediaFullyExpanded) {
-        window.scrollTo(0, 0);
+    // Se o usuário chegar aqui por um link de âncora (menu) em vez de rolar
+    // o mouse, destrava a expansão para não prender o scroll da página.
+    const handleAnchorJump = (): void => {
+      if (!mediaFullyExpanded && window.scrollY > window.innerHeight * 0.5) {
+        setScrollProgress(1);
+        setMediaFullyExpanded(true);
+        setShowContent(true);
       }
     };
 
+    window.addEventListener("scroll", handleAnchorJump as EventListener, {
+      passive: true,
+    });
     window.addEventListener("wheel", handleWheel as unknown as EventListener, {
       passive: false,
     });
-    window.addEventListener("scroll", handleScroll as EventListener);
     window.addEventListener(
       "touchstart",
       handleTouchStart as unknown as EventListener,
@@ -127,10 +133,13 @@ const ScrollExpandMedia = ({
 
     return () => {
       window.removeEventListener(
+        "scroll",
+        handleAnchorJump as EventListener,
+      );
+      window.removeEventListener(
         "wheel",
         handleWheel as unknown as EventListener,
       );
-      window.removeEventListener("scroll", handleScroll as EventListener);
       window.removeEventListener(
         "touchstart",
         handleTouchStart as unknown as EventListener,
