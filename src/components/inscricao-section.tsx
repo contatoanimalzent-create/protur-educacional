@@ -17,10 +17,13 @@ export function InscricaoSection() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
+    const nome_completo = String(data.get("nome_completo") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+
     const { error } = await pulseClient.from("protur_educacional_inscricoes").insert({
       event_id: PULSE_EVENT_ID,
-      nome_completo: String(data.get("nome_completo") ?? "").trim(),
-      email: String(data.get("email") ?? "").trim(),
+      nome_completo,
+      email,
       telefone: String(data.get("telefone") ?? "").trim(),
       endereco: String(data.get("endereco") ?? "").trim(),
     });
@@ -32,6 +35,14 @@ export function InscricaoSection() {
 
     setStatus("success");
     form.reset();
+
+    fetch("/api/inscricao/confirmar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nome_completo, email }),
+    }).catch(() => {
+      // Inscrição já está gravada; falha no e-mail não deve travar a UI.
+    });
   }
 
   return (
@@ -106,7 +117,7 @@ export function InscricaoSection() {
               {status === "success" && (
                 <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-protur-lime">
                   <CheckCircle size={18} weight="fill" />
-                  Inscrição confirmada! Nos vemos dia 19 ou 20 de setembro.
+                  Inscrição confirmada! Confira seu e-mail com o código de acesso.
                 </p>
               )}
               {status === "error" && (
