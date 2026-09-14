@@ -11,15 +11,14 @@ export function CtaContact() {
 
       <div className="relative mx-auto max-w-4xl px-6 text-center md:px-10">
         <span className="text-xs font-bold tracking-[0.2em] text-protur-coral">
-          LEVE PARA A SUA EMPRESA OU EVENTO
+          FALE COM A GENTE
         </span>
         <h2 className="mx-auto mt-4 max-w-2xl text-4xl font-extrabold leading-[1.14] text-protur-green md:text-5xl">
-          Um dia de bem-estar para o seu time começa com uma mensagem.
+          Ficou com alguma dúvida sobre o dia 19 ou 20?
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-protur-green/70">
-          Hoje o canal direto da Protur Educacional é o Instagram. Manda uma
-          mensagem contando o tamanho do seu time e a data pretendida, que a
-          gente monta a proposta de espaços e programação.
+          O evento é aberto ao público. Manda uma mensagem no Instagram que a
+          gente responde rapidinho.
         </p>
 
         <a

@@ -15,14 +15,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Protur Educacional | Turismo de bem-estar para empresas",
+  title: "Protur Educacional | Um dia para cuidar de você",
   description:
-    "Protur Educacional leva dias completos de bem-estar para dentro da sua empresa: movimento, meditação, avaliação nutricional, massoterapia e conteúdo educacional em um único espaço.",
-  metadataBase: new URL("https://protureducacional.com.br"),
+    "Protur Educacional: dois dias abertos ao público com movimento, meditação, avaliação nutricional, massoterapia e conteúdo educacional em um único espaço. Inscrição gratuita.",
+  metadataBase: new URL("https://protureducacional.com"),
   openGraph: {
-    title: "Protur Educacional | Turismo de bem-estar para empresas",
+    title: "Protur Educacional | Um dia para cuidar de você",
     description:
-      "Um dia inteiro para cuidar de você: 9 atividades simultâneas de movimento, saúde e bem-estar.",
+      "Um dia inteiro para cuidar de você: 9 atividades simultâneas de movimento, saúde e bem-estar. Inscrição gratuita e aberta ao público.",
     locale: "pt_BR",
     type: "website",
   },

@@ -22,7 +22,7 @@ export function InscricaoSection() {
       nome_completo: String(data.get("nome_completo") ?? "").trim(),
       email: String(data.get("email") ?? "").trim(),
       telefone: String(data.get("telefone") ?? "").trim(),
-      empresa: String(data.get("empresa") ?? "").trim() || null,
+      endereco: String(data.get("endereco") ?? "").trim(),
     });
 
     if (error) {
@@ -82,8 +82,9 @@ export function InscricaoSection() {
                   className="rounded-xl border border-protur-green/15 bg-white px-4 py-3 text-sm text-protur-green placeholder:text-protur-green/40 outline-none focus:border-protur-coral"
                 />
                 <input
-                  name="empresa"
-                  placeholder="Empresa (opcional)"
+                  name="endereco"
+                  required
+                  placeholder="Endereço (cidade/bairro)"
                   className="sm:col-span-2 rounded-xl border border-protur-green/15 bg-white px-4 py-3 text-sm text-protur-green placeholder:text-protur-green/40 outline-none focus:border-protur-coral"
                 />
               </div>

@@ -38,6 +38,7 @@ export function SiteHeader() {
             src="/brand/logo.png"
             alt="Protur Educacional"
             fill
+            unoptimized
             style={{ objectFit: "cover", objectPosition: "50% 17%" }}
             priority
           />

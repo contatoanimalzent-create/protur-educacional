@@ -21,7 +21,7 @@ export function AboutSection() {
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-protur-green/75">
               Uma plataforma de educação experiencial voltada à saúde, ao
-              movimento e ao bem-estar, levada até dentro da sua empresa.
+              movimento e ao bem-estar, aberta a todo mundo.
             </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-protur-green/75">
               Em 19 e 20 de setembro, reunimos profissionais de yoga,

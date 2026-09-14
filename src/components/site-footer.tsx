@@ -9,7 +9,7 @@ export function SiteFooter() {
         </div>
 
         <p className="text-sm text-protur-cream/50">
-          Turismo de bem-estar para empresas e eventos.
+          Turismo de bem-estar aberto ao público.
         </p>
 
         <a
