@@ -7,3 +7,17 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# Fluxo de trabalho deste repositório
+
+- Toda tarefa (correção, melhoria, nova função) vira **Issue** antes de virar código.
+- Trabalho acontece em branch (`feature/...`, `fix/...`), nunca direto na `main`.
+- Entra por **Pull Request**, e a descrição do PR referencia a Issue (`Closes #N`).
+- Não fazer merge de PR com build, lint ou typecheck quebrados.
+
+# Stack
+
+Next.js (App Router) + TypeScript + Tailwind CSS v4 + shadcn/ui + Framer Motion +
+Phosphor Icons. Paleta e conteúdo derivados do material real da marca (carrosséis do
+Instagram @protureducacional) em `public/brand/`.
+
