@@ -36,6 +36,19 @@ export async function POST(request: Request) {
           </td>
         </tr>
       </table>
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#0c2a4d;">
+        <tr>
+          <td style="padding:36px 32px;text-align:center;">
+            <p style="color:#3fae49;font-size:12px;font-weight:bold;letter-spacing:0.2em;margin:0 0 10px;">PROTUR EDUCACIONAL</p>
+            <p style="color:#ffffff;font-size:26px;font-weight:900;line-height:1.25;margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;">
+              UM DIA PARA<br />CUIDAR DE VOCÊ.
+            </p>
+            <p style="color:#7fd6e6;font-size:13px;font-weight:bold;letter-spacing:0.1em;margin:0;">
+              19 E 20 DE SETEMBRO &nbsp;·&nbsp; CAIS DO LAGO
+            </p>
+          </td>
+        </tr>
+      </table>
       <div style="padding:32px;">
         <p style="color:#12849c;font-size:12px;font-weight:bold;letter-spacing:0.1em;margin:0 0 8px;">INSCRIÇÃO CONFIRMADA</p>
         <h1 style="color:#0c2a4d;font-size:24px;line-height:1.3;margin:0 0 16px;">Prontinho, ${primeiroNome}!</h1>
@@ -43,16 +56,6 @@ export async function POST(request: Request) {
           Sua vaga no dia de bem-estar da Protur Educacional está garantida.
           Guarde este e-mail: o código abaixo é a sua confirmação.
         </p>
-        <table width="100%" cellpadding="0" cellspacing="0" style="background:#e1eef6;border-radius:16px;margin-bottom:24px;">
-          <tr>
-            <td style="padding:20px;">
-              <p style="color:#0c2a4d;font-size:13px;font-weight:bold;margin:0 0 4px;">QUANDO</p>
-              <p style="color:#334155;font-size:15px;margin:0 0 12px;">19 e 20 de setembro, das 8h às 16h</p>
-              <p style="color:#0c2a4d;font-size:13px;font-weight:bold;margin:0 0 4px;">ONDE</p>
-              <p style="color:#334155;font-size:15px;margin:0;">Cais do Lago, Setor de Clubes Sul</p>
-            </td>
-          </tr>
-        </table>
         <div style="text-align:center;margin-bottom:24px;">
           <img src="${qrDataUrl}" alt="QR code da inscrição" width="200" height="200" style="border-radius:12px;" />
           <p style="color:#94a3b8;font-size:12px;margin:12px 0 0;">${codigo}</p>
