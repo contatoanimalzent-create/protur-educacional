@@ -26,9 +26,16 @@ export async function POST(request: Request) {
   const html = `
   <div style="background:#f5f9fb;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
     <div style="max-width:480px;margin:0 auto;background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #e1eef6;">
-      <div style="background:#0c2a4d;padding:28px 32px;">
-        <img src="https://protureducacional.com/brand/logo.png" alt="Protur Educacional" width="120" style="display:block;" />
-      </div>
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border-bottom:1px solid #e1eef6;">
+        <tr>
+          <td style="padding:20px 32px;" align="left">
+            <img src="https://protureducacional.com/brand/logo.png" alt="Protur Educacional" width="110" style="display:block;" />
+          </td>
+          <td style="padding:20px 32px;" align="right">
+            <span style="color:#12849c;font-size:12px;font-weight:bold;letter-spacing:0.08em;">19-20 SET</span>
+          </td>
+        </tr>
+      </table>
       <div style="padding:32px;">
         <p style="color:#12849c;font-size:12px;font-weight:bold;letter-spacing:0.1em;margin:0 0 8px;">INSCRIÇÃO CONFIRMADA</p>
         <h1 style="color:#0c2a4d;font-size:24px;line-height:1.3;margin:0 0 16px;">Prontinho, ${primeiroNome}!</h1>
