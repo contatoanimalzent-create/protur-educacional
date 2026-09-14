@@ -21,7 +21,7 @@ const SPACES = [
   },
   {
     index: "02",
-    name: "Espaços Zen",
+    name: "Arena Zen",
     description:
       "Meditação guiada, qigong, yoga nidra e automassagem para desacelerar o corpo e a mente.",
     icon: FlowerLotus,
@@ -29,7 +29,7 @@ const SPACES = [
   },
   {
     index: "03",
-    name: "Espaço Saúde",
+    name: "Arena Saúde",
     description: "Avaliação nutricional e testes rápidos com profissionais dedicados.",
     icon: HeartStraight,
     span: "md:col-span-4",
@@ -60,7 +60,7 @@ const SPACES = [
 
 export function SpacesGrid() {
   return (
-    <section id="espacos" className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-20">
+    <section id="atividades" className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-20">
       <div className="mb-14 flex flex-col gap-4 md:mb-20 md:max-w-xl">
         <span className="text-xs font-bold tracking-[0.2em] text-protur-coral">
           9 ATIVIDADES · 08H ÀS 16H
@@ -70,7 +70,7 @@ export function SpacesGrid() {
           <br /> nove formas de cuidar de você.
         </h2>
         <p className="text-base text-protur-green/70">
-          Cada espaço roda em paralelo, com programação própria. Escolha o que
+          Cada atividade roda em paralelo, com programação própria. Escolha o que
           fizer sentido para o seu momento e transite entre eles a qualquer hora.
         </p>
       </div>

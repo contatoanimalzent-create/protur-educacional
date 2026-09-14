@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Protur Educacional | Um dia para cuidar de você",
   description:
-    "Protur Educacional: dois dias abertos ao público com movimento, meditação, avaliação nutricional, massoterapia e conteúdo educacional em um único espaço. Inscrição gratuita.",
+    "Protur Educacional: dois dias abertos ao público com movimento, meditação, avaliação nutricional, massoterapia e conteúdo educacional em um único lugar. Inscrição gratuita.",
   metadataBase: new URL("https://protureducacional.com"),
   openGraph: {
     title: "Protur Educacional | Um dia para cuidar de você",

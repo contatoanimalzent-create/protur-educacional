@@ -45,7 +45,7 @@ const DAYS: DaySchedule[] = [
       },
       {
         key: "zen",
-        label: "Espaços Zen",
+        label: "Arena Zen",
         type: "table",
         headers: ["Horário", "Zen 1", "Zen 2"],
         rows: [
@@ -126,7 +126,7 @@ const DAYS: DaySchedule[] = [
       },
       {
         key: "zen",
-        label: "Espaços Zen",
+        label: "Arena Zen",
         type: "table",
         headers: ["Horário", "Zen 1", "Zen 2"],
         rows: [
