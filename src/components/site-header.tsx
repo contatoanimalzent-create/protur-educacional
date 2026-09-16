@@ -25,8 +25,8 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 bg-protur-cream/90 backdrop-blur-md transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_1px_0_rgba(22,53,42,0.08)]" : ""
+      className={`fixed inset-x-0 top-0 z-50 border-b bg-protur-cream/90 backdrop-blur-md transition-colors duration-300 ${
+        scrolled ? "border-protur-green/10" : "border-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 md:px-10">
@@ -66,7 +66,7 @@ export function SiteHeader() {
           </a>
           <Button
             asChild
-            className="rounded-full bg-protur-coral px-7 py-6 text-base font-extrabold uppercase tracking-wide text-protur-cream shadow-[0_6px_16px_rgba(18,132,156,0.4)] hover:bg-protur-coral/90"
+            className="rounded-full bg-protur-coral px-7 py-6 text-base font-extrabold uppercase tracking-wide text-protur-cream hover:bg-protur-coral/90"
           >
             <a href="#inscricao">Inscrição</a>
           </Button>

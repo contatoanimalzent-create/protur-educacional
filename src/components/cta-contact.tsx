@@ -3,7 +3,7 @@ import { RingsMotif } from "@/components/rings-motif";
 
 export function CtaContact() {
   return (
-    <section id="contato" className="relative overflow-hidden bg-protur-cream py-24 md:py-32">
+    <section id="contato" className="relative overflow-hidden bg-protur-green-soft py-24 md:py-32">
       <RingsMotif
         size={480}
         className="pointer-events-none absolute -bottom-32 -left-32 opacity-[0.25]"
@@ -25,7 +25,7 @@ export function CtaContact() {
           href="https://www.instagram.com/protureducacional/"
           target="_blank"
           rel="noreferrer noopener"
-          className="mt-10 inline-flex items-center gap-3 rounded-full bg-protur-green px-8 py-4 text-base font-bold text-protur-cream transition-transform hover:-translate-y-0.5"
+          className="mt-10 inline-flex items-center gap-3 rounded-full bg-protur-coral px-8 py-4 text-base font-bold text-protur-cream transition-colors hover:bg-protur-coral/90"
         >
           <InstagramLogo size={22} weight="bold" />
           Falar no Instagram

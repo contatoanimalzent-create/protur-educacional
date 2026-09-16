@@ -48,7 +48,7 @@ export function InscricaoSection() {
   return (
     <section
       id="inscricao"
-      className="relative overflow-hidden bg-protur-green-soft py-20 md:py-24"
+      className="relative overflow-hidden bg-protur-coral-soft py-20 md:py-24"
     >
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-center md:gap-8">
@@ -75,7 +75,7 @@ export function InscricaoSection() {
           <div className="md:col-span-6">
             <form
               onSubmit={handleSubmit}
-              className="rounded-3xl border border-protur-green/10 bg-protur-cream p-6 shadow-[0_30px_60px_-30px_rgba(12,42,77,0.3)] md:p-8"
+              className="rounded-3xl border border-protur-green/10 bg-protur-cream p-6 md:p-8"
             >
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <input

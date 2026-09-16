@@ -32,7 +32,7 @@ export function AboutSection() {
           </div>
 
           <div className="md:col-span-5">
-            <div className="overflow-hidden rounded-3xl border border-protur-green/10 shadow-[0_30px_60px_-30px_rgba(12,42,77,0.25)]">
+            <div className="overflow-hidden rounded-3xl border border-protur-green/10">
               <Image
                 src="/brand/poster-hiker.png"
                 alt="Protur Educacional: educação, saúde, bem-estar e experiências que transformam qualidade de vida"

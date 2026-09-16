@@ -83,9 +83,11 @@ export function SpacesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-            className={`group relative overflow-hidden rounded-3xl border border-protur-green/10 bg-protur-green-soft p-8 ${space.span}`}
+            className={`group relative overflow-hidden rounded-3xl p-8 ${
+              i % 2 === 0 ? "bg-protur-green-soft" : "bg-protur-coral-soft"
+            } ${space.span}`}
           >
-            <span className="font-mono text-5xl font-bold text-protur-green/15 transition-colors group-hover:text-protur-coral/40">
+            <span className="font-mono text-5xl font-bold text-protur-green/15 transition-colors group-hover:text-protur-green/30">
               {space.index}
             </span>
             <space.icon
