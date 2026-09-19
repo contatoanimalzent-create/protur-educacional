@@ -15,7 +15,8 @@ export async function POST(request: Request) {
 
   const codigo = `PROTUR-${Date.now().toString(36).toUpperCase()}`;
   const qrPayload = JSON.stringify({ codigo, nome, email, evento: "19-20 SET" });
-  const qrDataUrl = await QRCode.toDataURL(qrPayload, {
+  // Gmail bloqueia data: URI em <img>, entao o QR vai como anexo inline (cid).
+  const qrPng = await QRCode.toBuffer(qrPayload, {
     margin: 1,
     width: 320,
     color: { dark: "#0C2A4D", light: "#FFFFFF" },
@@ -54,7 +55,7 @@ export async function POST(request: Request) {
           Guarde este e-mail: o código abaixo é a sua confirmação.
         </p>
         <div style="text-align:center;margin-bottom:24px;">
-          <img src="${qrDataUrl}" alt="QR code da inscrição" width="200" height="200" style="border-radius:12px;" />
+          <img src="cid:qrcode-inscricao" alt="QR code da inscrição" width="200" height="200" style="border-radius:12px;" />
           <p style="color:#94a3b8;font-size:12px;margin:12px 0 0;">${codigo}</p>
         </div>
         <p style="color:#334155;font-size:14px;line-height:1.6;margin:0;">
@@ -69,12 +70,20 @@ export async function POST(request: Request) {
   </div>`;
 
   try {
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Protur Educacional <contatopulse@animalzgroup.com>",
       to: email,
       subject: "Inscrição confirmada: Protur Educacional",
       html,
+      attachments: [
+        {
+          filename: "qrcode-inscricao.png",
+          content: qrPng,
+          contentId: "qrcode-inscricao",
+        },
+      ],
     });
+    if (error) throw error;
     return NextResponse.json({ ok: true, codigo });
   } catch (error) {
     console.error("Falha ao enviar e-mail de confirmação", error);
