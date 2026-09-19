@@ -26,22 +26,27 @@ export async function POST(request: Request) {
 
   const base = supabaseUrl.replace(/\/$/, "");
 
-  const rpc = await fetch(`${base}/rest/v1/rpc/claim_protur_ticket_public`, {
-    method: "POST",
-    headers: {
-      apikey: anonKey,
-      Authorization: `Bearer ${anonKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      p_api_secret: apiSecret,
-      p_event_id: eventId,
-      p_nome_completo: nome,
-      p_email: email,
-      p_telefone: telefone,
-      p_endereco: endereco,
-    }),
-  });
+  const emitir = () =>
+    fetch(`${base}/rest/v1/rpc/claim_protur_ticket_public`, {
+      method: "POST",
+      headers: {
+        apikey: anonKey,
+        Authorization: `Bearer ${anonKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        p_api_secret: apiSecret,
+        p_event_id: eventId,
+        p_nome_completo: nome,
+        p_email: email,
+        p_telefone: telefone,
+        p_endereco: endereco,
+      }),
+    });
+
+  let rpc = await emitir();
+  // Timeout do banco (57014) desfaz a transacao inteira, entao tentar de novo e seguro.
+  if (rpc.status >= 500) rpc = await emitir();
 
   const ingresso = await rpc.json().catch(() => null);
   if (!rpc.ok || !ingresso?.ok) {
