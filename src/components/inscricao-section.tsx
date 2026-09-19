@@ -3,7 +3,6 @@
 import { FormEvent, useState } from "react";
 import { CalendarBlank, MapPin, CheckCircle, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
-import { pulseClient, PULSE_EVENT_ID } from "@/lib/pulse";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -17,32 +16,27 @@ export function InscricaoSection() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    const nome_completo = String(data.get("nome_completo") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
+    // A inscricao vira ingresso da Pulse (pedido + QR de check-in) e a Pulse manda o e-mail.
+    const ok = await fetch("/api/inscricao", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nome_completo: String(data.get("nome_completo") ?? "").trim(),
+        email: String(data.get("email") ?? "").trim(),
+        telefone: String(data.get("telefone") ?? "").trim(),
+        endereco: String(data.get("endereco") ?? "").trim(),
+      }),
+    })
+      .then((res) => res.ok)
+      .catch(() => false);
 
-    const { error } = await pulseClient.from("protur_educacional_inscricoes").insert({
-      event_id: PULSE_EVENT_ID,
-      nome_completo,
-      email,
-      telefone: String(data.get("telefone") ?? "").trim(),
-      endereco: String(data.get("endereco") ?? "").trim(),
-    });
-
-    if (error) {
+    if (!ok) {
       setStatus("error");
       return;
     }
 
     setStatus("success");
     form.reset();
-
-    fetch("/api/inscricao/confirmar", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nome_completo, email }),
-    }).catch(() => {
-      // Inscrição já está gravada; falha no e-mail não deve travar a UI.
-    });
   }
 
   return (
