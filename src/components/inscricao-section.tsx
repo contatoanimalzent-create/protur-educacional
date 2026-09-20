@@ -4,20 +4,51 @@ import { FormEvent, useState } from "react";
 import { CalendarBlank, MapPin, CheckCircle, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "loading" | "success" | "repetida" | "cpf" | "error";
+
+function mascaraCpf(valor: string) {
+  const d = valor.replace(/\D/g, "").slice(0, 11);
+  return d
+    .replace(/^(\d{3})(\d)/, "$1.$2")
+    .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
+    .replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
+}
+
+function cpfValido(valor: string) {
+  const d = valor.replace(/\D/g, "");
+  if (d.length !== 11 || /^(\d)\1{10}$/.test(d)) return false;
+
+  const digito = (ate: number) => {
+    let soma = 0;
+    for (let i = 0; i < ate; i += 1) soma += Number(d[i]) * (ate + 1 - i);
+    const resto = (soma * 10) % 11;
+    return resto === 10 ? 0 : resto;
+  };
+
+  return digito(9) === Number(d[9]) && digito(10) === Number(d[10]);
+}
 
 export function InscricaoSection() {
   const [status, setStatus] = useState<Status>("idle");
+  const [cpf, setCpf] = useState("");
+  const [ingresso, setIngresso] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    if (!cpfValido(cpf)) {
+      setStatus("cpf");
+      return;
+    }
+
     setStatus("loading");
 
     const form = e.currentTarget;
     const data = new FormData(form);
 
     // A inscricao vira ingresso da Pulse (pedido + QR de check-in) e a Pulse manda o e-mail.
-    const ok = await fetch("/api/inscricao", {
+    // O CPF e a chave de duplicidade: repetiu o CPF, devolve o ingresso que ja existe.
+    const resposta = await fetch("/api/inscricao", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -25,18 +56,21 @@ export function InscricaoSection() {
         email: String(data.get("email") ?? "").trim(),
         telefone: String(data.get("telefone") ?? "").trim(),
         endereco: String(data.get("endereco") ?? "").trim(),
+        cpf,
       }),
     })
-      .then((res) => res.ok)
-      .catch(() => false);
+      .then(async (res) => (res.ok ? await res.json() : null))
+      .catch(() => null);
 
-    if (!ok) {
-      setStatus("error");
+    if (!resposta?.ok) {
+      setStatus(resposta?.error === "cpf_invalido" ? "cpf" : "error");
       return;
     }
 
-    setStatus("success");
+    setIngresso(resposta.ticket_number ?? null);
+    setStatus(resposta.already ? "repetida" : "success");
     form.reset();
+    setCpf("");
   }
 
   return (
@@ -93,6 +127,19 @@ export function InscricaoSection() {
                   className="rounded-xl border border-protur-green/15 bg-white px-4 py-3 text-sm text-protur-green placeholder:text-protur-green/40 outline-none focus:border-protur-coral"
                 />
                 <input
+                  name="cpf"
+                  required
+                  inputMode="numeric"
+                  autoComplete="off"
+                  value={cpf}
+                  onChange={(event) => {
+                    setCpf(mascaraCpf(event.target.value));
+                    if (status === "cpf") setStatus("idle");
+                  }}
+                  placeholder="CPF"
+                  className="sm:col-span-2 rounded-xl border border-protur-green/15 bg-white px-4 py-3 text-sm text-protur-green placeholder:text-protur-green/40 outline-none focus:border-protur-coral"
+                />
+                <input
                   name="endereco"
                   required
                   placeholder="Endereço (cidade/bairro)"
@@ -112,6 +159,19 @@ export function InscricaoSection() {
                 <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-protur-lime">
                   <CheckCircle size={18} weight="fill" />
                   Inscrição confirmada! Confira seu e-mail com o código de acesso.
+                </p>
+              )}
+              {status === "repetida" && (
+                <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-protur-green">
+                  <CheckCircle size={18} weight="fill" />
+                  Esse CPF já tem inscrição{ingresso ? ` (${ingresso})` : ""}. O ingresso é o
+                  mesmo, procure o e-mail que já te enviamos.
+                </p>
+              )}
+              {status === "cpf" && (
+                <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-red-600">
+                  <WarningCircle size={18} weight="fill" />
+                  Confira o CPF: os números não fecham.
                 </p>
               )}
               {status === "error" && (
