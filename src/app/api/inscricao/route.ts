@@ -19,8 +19,9 @@ export async function POST(request: Request) {
   const email = campo("email");
   const telefone = campo("telefone");
   const endereco = campo("endereco");
+  const cpf = campo("cpf").replace(/\D/g, "");
 
-  if (!nome || !email || !telefone || !endereco) {
+  if (!nome || !email || !telefone || !endereco || !cpf) {
     return NextResponse.json({ error: "Dados incompletos." }, { status: 400 });
   }
 
@@ -41,6 +42,7 @@ export async function POST(request: Request) {
         p_email: email,
         p_telefone: telefone,
         p_endereco: endereco,
+        p_cpf: cpf,
       }),
     });
 
@@ -49,6 +51,9 @@ export async function POST(request: Request) {
   if (rpc.status >= 500) rpc = await emitir();
 
   const ingresso = await rpc.json().catch(() => null);
+  if (ingresso?.error === "cpf_invalido") {
+    return NextResponse.json({ ok: false, error: "cpf_invalido" }, { status: 400 });
+  }
   if (!rpc.ok || !ingresso?.ok) {
     console.error("Falha ao emitir ingresso na Pulse", rpc.status, ingresso);
     return NextResponse.json({ error: "Não foi possível concluir a inscrição." }, { status: 502 });
@@ -76,5 +81,9 @@ export async function POST(request: Request) {
     }
   }
 
-  return NextResponse.json({ ok: true, ticket_number: ingresso.ticket_number });
+  return NextResponse.json({
+    ok: true,
+    already: Boolean(ingresso.already),
+    ticket_number: ingresso.ticket_number,
+  });
 }
